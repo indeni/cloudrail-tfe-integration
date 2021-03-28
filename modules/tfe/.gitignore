@@ -1,0 +1,25 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# terraform config files
+*.terraformrc
+*terraformrc*
+
+# tfvars file
+terraform.tfvars
+
+# TFE airgrap bundle
+*.airgap*
+
+# TFE license files
+*.rli
+
+# Terraform testing config files
+**/examples/*/*.tf
+
+# new Terraform providers lock file (0.14)
+.terraform.lock.hcl
