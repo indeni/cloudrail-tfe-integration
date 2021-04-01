@@ -1,0 +1,18 @@
+import "tfrun"
+import "http"
+import "json"
+
+param cloudrailToken
+
+cloudrail = func(){
+    url = "https://api.cloudrail.app/assessments"
+    req = http.request(url).with_header("X-Api-Key", cloudrailToken)
+    resp = http.get(req)
+    body = json.unmarshal(resp.body)
+    run_id = tfrun.id
+    result = filter body.page_results as v { v.execution_source_identifier is run_id }
+    failed_rules = result[0].results_summary.failed_rules
+    print(failed_rules)
+    return failed_rules == 0
+}
+main = rule {cloudrail()}

@@ -1,0 +1,7 @@
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
+license.rli
+.terraform/
+tfe.pem
+.DS_Store
