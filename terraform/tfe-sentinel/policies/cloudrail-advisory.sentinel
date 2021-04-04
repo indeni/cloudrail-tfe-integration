@@ -9,8 +9,8 @@ getAssesmentResult = func() {
 	req = http.request(url).with_header("X-Api-Key", cloudrailToken)
 	resp = http.get(req)
 	body = json.unmarshal(resp.body)
-	result = filter body.page_results as v { v.execution_source_identifier is tfun.id }
-	return result[0].results_summary
+	result = filter body.page_results as v { v.execution_source_identifier is tfrun.id }
+	return result[0]
 }
 
 isPass = func(enforcement_level, assessment_result_type) {

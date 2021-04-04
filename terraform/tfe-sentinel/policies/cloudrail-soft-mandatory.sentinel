@@ -10,7 +10,7 @@ getAssesmentResult = func() {
 	resp = http.get(req)
 	body = json.unmarshal(resp.body)
 	result = filter body.page_results as v { v.execution_source_identifier is tfrun.id }
-	return result[0].results_summary
+	return result[0]
 }
 
 isPass = func(enforcement_level, assessment_result_type) {
@@ -30,4 +30,5 @@ cloudrail = func(enforcement_level) {
 	print(msg)
 	return isPass(enforcement_level, assessment_result_type)
 }
+
 main = rule { cloudrail("soft-mandatory") }
