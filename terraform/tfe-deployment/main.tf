@@ -28,9 +28,9 @@ locals {
 }
 
 resource "random_password" "password" {
-  for_each         = toset(local.password_targets)
-  length           = 16
-  special          = false
+  for_each = toset(local.password_targets)
+  length   = 16
+  special  = false
   //override_special = "_%@/'\""
 }
 
@@ -68,7 +68,7 @@ resource "aws_s3_bucket_object" "license" {
   bucket = aws_s3_bucket.license.bucket
   key    = "license.rli"
   source = "${path.module}/license.rli"
-  etag = filemd5("${path.module}/license.rli")
+  etag   = filemd5("${path.module}/license.rli")
 }
 
 module "tfe" {
@@ -87,11 +87,12 @@ module "tfe" {
   enc_password               = random_password.password["enc"].result
   vpc_id                     = module.vpc.vpc_id
   alb_subnet_ids             = module.vpc.public_subnets
-  //ec2_subnet_ids             = module.vpc.public_subnets #for ssh access
-  //ingress_cidr_ec2_allow = ["0.0.0.0/0"] #for ssh access
-  ec2_subnet_ids             = module.vpc.private_subnets
+  ec2_subnet_ids             = module.vpc.public_subnets #for ssh access
+  ingress_cidr_ec2_allow = ["0.0.0.0/0"] #for ssh access
+  //ec2_subnet_ids             = module.vpc.private_subnets
   route53_hosted_zone_public = var.route53_hosted_zone_public
   ingress_cidr_console_allow = ["0.0.0.0/0"]
+  instance_size              = "m5.large"
   kms_key_arn                = aws_kms_key.key.arn
   ssh_key_pair               = aws_key_pair.key_pair.key_name
   rds_subnet_ids             = module.vpc.database_subnets
@@ -99,5 +100,7 @@ module "tfe" {
   rds_master_username        = "tfe"
   rds_master_password        = random_password.password["rds"].result
   rds_skip_final_snapshot    = true
-  
+  rds_replica_count          = 0
+  rds_instance_class         = "db.r5.large"
+  custom_image_tag           = "swinkler/indeni-cloudrail:latest"
 }

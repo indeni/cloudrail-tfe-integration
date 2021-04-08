@@ -10,10 +10,13 @@ variable "tfe_token" {
 
 variable "organizations" {
   type    = list(string)
-  default = ["TestOrg"]
 }
 
 variable "cloudrail_token" {
   type      = string
   sensitive = true
+}
+
+variable "cloud_account_id" {
+  type = string
 }

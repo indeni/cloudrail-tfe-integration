@@ -368,3 +368,8 @@ variable "destination_bucket" {
   description = "Destination S3 Bucket for Cross-Region Replication configuration. Should exist in Secondary region."
   default     = ""
 }
+
+variable "custom_image_tag" {
+  type = string
+  description = "Image tag to use for worker"
+}

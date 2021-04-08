@@ -91,6 +91,7 @@ locals {
     pg_dbname                     = aws_rds_cluster.tfe.database_name
     pg_user                       = aws_rds_cluster.tfe.master_username
     pg_password                   = var.rds_master_password
+    custom_image_tag              = var.custom_image_tag
   }
 }
 

@@ -318,7 +318,12 @@ EOF
     "capacity_memory": {
         "value": "${capacity_memory}"
     },
-    "custom_image_tag": {},
+    "tbw_image": {
+        "value": "custom_image"
+    },
+    "custom_image_tag": {
+      "value": "${custom_image_tag}"
+    },
     "disk_path": {},
     "enable_metrics_collection": {
         "value": "1"
@@ -385,9 +390,6 @@ EOF
     },%{ else }
     "s3_sse": {},
     "s3_sse_kms_key_id": {},%{ endif }
-    "tbw_image": {
-        "value": "default_image"
-    },
     "tls_vers": {
         "value": "tls_1_2_tls_1_3"
     }
