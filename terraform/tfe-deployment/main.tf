@@ -87,9 +87,9 @@ module "tfe" {
   enc_password               = random_password.password["enc"].result
   vpc_id                     = module.vpc.vpc_id
   alb_subnet_ids             = module.vpc.public_subnets
-  ec2_subnet_ids             = module.vpc.public_subnets #for ssh access
-  ingress_cidr_ec2_allow = ["0.0.0.0/0"] #for ssh access
-  //ec2_subnet_ids             = module.vpc.private_subnets
+  //ec2_subnet_ids             = module.vpc.public_subnets #for ssh access
+  //ingress_cidr_ec2_allow = ["0.0.0.0/0"] #for ssh access
+  ec2_subnet_ids             = module.vpc.private_subnets
   route53_hosted_zone_public = var.route53_hosted_zone_public
   ingress_cidr_console_allow = ["0.0.0.0/0"]
   instance_size              = "m5.large"
