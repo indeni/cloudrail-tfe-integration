@@ -6,3 +6,6 @@ license.rli
 tfe.pem
 .DS_Store
 terraform.tfstate*
+.sentinel
+mock/*
+test/*
