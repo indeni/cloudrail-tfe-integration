@@ -1,0 +1,368 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"aws_sns_topic": {
+				"cloudrail_1": {
+					0: {
+						"applied": {
+							"application_failure_feedback_role_arn":    null,
+							"application_success_feedback_role_arn":    null,
+							"application_success_feedback_sample_rate": null,
+							"content_based_deduplication":              false,
+							"delivery_policy":                          null,
+							"display_name":                             null,
+							"fifo_topic":                               false,
+							"firehose_failure_feedback_role_arn":       null,
+							"firehose_success_feedback_role_arn":       null,
+							"firehose_success_feedback_sample_rate":    null,
+							"http_failure_feedback_role_arn":           null,
+							"http_success_feedback_role_arn":           null,
+							"http_success_feedback_sample_rate":        null,
+							"kms_master_key_id":                        null,
+							"lambda_failure_feedback_role_arn":         null,
+							"lambda_success_feedback_role_arn":         null,
+							"lambda_success_feedback_sample_rate":      null,
+							"name": "sns_not_ecnrypted-1",
+							"sqs_failure_feedback_role_arn":    null,
+							"sqs_success_feedback_role_arn":    null,
+							"sqs_success_feedback_sample_rate": null,
+							"tags": {
+								"Name": "Sns Topic Cloudrail Test",
+							},
+							"tags_all": {
+								"Name": "Sns Topic Cloudrail Test",
+							},
+						},
+						"destroy": false,
+						"diff": {
+							"application_failure_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"application_success_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"application_success_feedback_sample_rate": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"content_based_deduplication": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"delivery_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"display_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"fifo_topic": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"firehose_failure_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"firehose_success_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"firehose_success_feedback_sample_rate": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"http_failure_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"http_success_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"http_success_feedback_sample_rate": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_master_key_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"lambda_failure_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"lambda_success_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"lambda_success_feedback_sample_rate": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "sns_not_ecnrypted-1",
+								"old":      "",
+							},
+							"name_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"owner": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"policy": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"sqs_failure_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"sqs_success_feedback_role_arn": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"sqs_success_feedback_sample_rate": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags.Name": {
+								"computed": false,
+								"new":      "Sns Topic Cloudrail Test",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags_all.Name": {
+								"computed": false,
+								"new":      "Sns Topic Cloudrail Test",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"aws_sqs_queue": {
+				"cloudrail": {
+					0: {
+						"applied": {
+							"content_based_deduplication": false,
+							"delay_seconds":               0,
+							"fifo_queue":                  false,
+							"kms_master_key_id":           null,
+							"max_message_size":            262144,
+							"message_retention_seconds":   345600,
+							"name": "sqs_non_encrypted",
+							"receive_wait_time_seconds": 0,
+							"redrive_policy":            null,
+							"tags": {
+								"Name": "Sqs Cloudrail Test",
+							},
+							"tags_all": {
+								"Name": "Sqs Cloudrail Test",
+							},
+							"visibility_timeout_seconds": 30,
+						},
+						"destroy": false,
+						"diff": {
+							"arn": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"content_based_deduplication": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"deduplication_scope": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"delay_seconds": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"fifo_queue": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"fifo_throughput_limit": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_data_key_reuse_period_seconds": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_master_key_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"max_message_size": {
+								"computed": false,
+								"new":      "262144",
+								"old":      "",
+							},
+							"message_retention_seconds": {
+								"computed": false,
+								"new":      "345600",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "sqs_non_encrypted",
+								"old":      "",
+							},
+							"name_prefix": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"policy": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"receive_wait_time_seconds": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"redrive_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"tags.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags.Name": {
+								"computed": false,
+								"new":      "Sqs Cloudrail Test",
+								"old":      "",
+							},
+							"tags_all.%": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"tags_all.Name": {
+								"computed": false,
+								"new":      "Sqs Cloudrail Test",
+								"old":      "",
+							},
+							"url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"visibility_timeout_seconds": {
+								"computed": false,
+								"new":      "30",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.5"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

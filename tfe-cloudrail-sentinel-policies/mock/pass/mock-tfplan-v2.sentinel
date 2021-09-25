@@ -1,0 +1,425 @@
+terraform_version = "1.0.5"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"aws_sns_topic.cloudrail_1": {
+			"address":        "aws_sns_topic.cloudrail_1",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "cloudrail_1",
+			"provider_name":  "registry.terraform.io/hashicorp/aws",
+			"tainted":        false,
+			"type":           "aws_sns_topic",
+			"values": {
+				"application_failure_feedback_role_arn":    null,
+				"application_success_feedback_role_arn":    null,
+				"application_success_feedback_sample_rate": null,
+				"content_based_deduplication":              false,
+				"delivery_policy":                          null,
+				"display_name":                             null,
+				"fifo_topic":                               false,
+				"firehose_failure_feedback_role_arn":       null,
+				"firehose_success_feedback_role_arn":       null,
+				"firehose_success_feedback_sample_rate":    null,
+				"http_failure_feedback_role_arn":           null,
+				"http_success_feedback_role_arn":           null,
+				"http_success_feedback_sample_rate":        null,
+				"kms_master_key_id":                        null,
+				"lambda_failure_feedback_role_arn":         null,
+				"lambda_success_feedback_role_arn":         null,
+				"lambda_success_feedback_sample_rate":      null,
+				"name": "sns_not_ecnrypted-1",
+				"sqs_failure_feedback_role_arn":    null,
+				"sqs_success_feedback_role_arn":    null,
+				"sqs_success_feedback_sample_rate": null,
+				"tags": {
+					"Name": "Sns Topic Cloudrail Test",
+				},
+				"tags_all": {
+					"Name": "Sns Topic Cloudrail Test",
+				},
+			},
+		},
+		"aws_sqs_queue.cloudrail": {
+			"address":        "aws_sqs_queue.cloudrail",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "cloudrail",
+			"provider_name":  "registry.terraform.io/hashicorp/aws",
+			"tainted":        false,
+			"type":           "aws_sqs_queue",
+			"values": {
+				"content_based_deduplication": false,
+				"delay_seconds":               0,
+				"fifo_queue":                  false,
+				"kms_master_key_id":           null,
+				"max_message_size":            262144,
+				"message_retention_seconds":   345600,
+				"name": "sqs_non_encrypted",
+				"receive_wait_time_seconds": 0,
+				"redrive_policy":            null,
+				"tags": {
+					"Name": "Sqs Cloudrail Test",
+				},
+				"tags_all": {
+					"Name": "Sqs Cloudrail Test",
+				},
+				"visibility_timeout_seconds": 30,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"aws_sns_topic.cloudrail_1": {
+		"address": "aws_sns_topic.cloudrail_1",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"application_failure_feedback_role_arn":    null,
+				"application_success_feedback_role_arn":    null,
+				"application_success_feedback_sample_rate": null,
+				"content_based_deduplication":              false,
+				"delivery_policy":                          null,
+				"display_name":                             null,
+				"fifo_topic":                               false,
+				"firehose_failure_feedback_role_arn":       null,
+				"firehose_success_feedback_role_arn":       null,
+				"firehose_success_feedback_sample_rate":    null,
+				"http_failure_feedback_role_arn":           null,
+				"http_success_feedback_role_arn":           null,
+				"http_success_feedback_sample_rate":        null,
+				"kms_master_key_id":                        null,
+				"lambda_failure_feedback_role_arn":         null,
+				"lambda_success_feedback_role_arn":         null,
+				"lambda_success_feedback_sample_rate":      null,
+				"name": "sns_not_ecnrypted-1",
+				"sqs_failure_feedback_role_arn":    null,
+				"sqs_success_feedback_role_arn":    null,
+				"sqs_success_feedback_sample_rate": null,
+				"tags": {
+					"Name": "Sns Topic Cloudrail Test",
+				},
+				"tags_all": {
+					"Name": "Sns Topic Cloudrail Test",
+				},
+			},
+			"after_unknown": {
+				"arn":         true,
+				"id":          true,
+				"name_prefix": true,
+				"owner":       true,
+				"policy":      true,
+				"tags":        {},
+				"tags_all":    {},
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "cloudrail_1",
+		"provider_name":  "registry.terraform.io/hashicorp/aws",
+		"type":           "aws_sns_topic",
+	},
+	"aws_sqs_queue.cloudrail": {
+		"address": "aws_sqs_queue.cloudrail",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"content_based_deduplication": false,
+				"delay_seconds":               0,
+				"fifo_queue":                  false,
+				"kms_master_key_id":           null,
+				"max_message_size":            262144,
+				"message_retention_seconds":   345600,
+				"name": "sqs_non_encrypted",
+				"receive_wait_time_seconds": 0,
+				"redrive_policy":            null,
+				"tags": {
+					"Name": "Sqs Cloudrail Test",
+				},
+				"tags_all": {
+					"Name": "Sqs Cloudrail Test",
+				},
+				"visibility_timeout_seconds": 30,
+			},
+			"after_unknown": {
+				"arn": true,
+				"deduplication_scope":   true,
+				"fifo_throughput_limit": true,
+				"id": true,
+				"kms_data_key_reuse_period_seconds": true,
+				"name_prefix":                       true,
+				"policy":                            true,
+				"tags":                              {},
+				"tags_all":                          {},
+				"url":                               true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "cloudrail",
+		"provider_name":  "registry.terraform.io/hashicorp/aws",
+		"type":           "aws_sqs_queue",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"aws": {
+				"expressions": {
+					"region": {
+						"constant_value": "us-east-1",
+					},
+				},
+				"name": "aws",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "aws_sns_topic.cloudrail_1",
+					"expressions": {
+						"name": {
+							"constant_value": "sns_not_ecnrypted-1",
+						},
+						"tags": {
+							"constant_value": {
+								"Name": "Sns Topic Cloudrail Test",
+							},
+						},
+					},
+					"mode":                "managed",
+					"name":                "cloudrail_1",
+					"provider_config_key": "aws",
+					"schema_version":      0,
+					"type":                "aws_sns_topic",
+				},
+				{
+					"address": "aws_sqs_queue.cloudrail",
+					"expressions": {
+						"name": {
+							"constant_value": "sqs_non_encrypted",
+						},
+						"tags": {
+							"constant_value": {
+								"Name": "Sqs Cloudrail Test",
+							},
+						},
+					},
+					"mode":                "managed",
+					"name":                "cloudrail",
+					"provider_config_key": "aws",
+					"schema_version":      0,
+					"type":                "aws_sqs_queue",
+				},
+			],
+		},
+	},
+	"format_version": "0.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "aws_sns_topic.cloudrail_1",
+					"mode":           "managed",
+					"name":           "cloudrail_1",
+					"provider_name":  "registry.terraform.io/hashicorp/aws",
+					"schema_version": 0,
+					"sensitive_values": {
+						"tags":     {},
+						"tags_all": {},
+					},
+					"type": "aws_sns_topic",
+					"values": {
+						"application_failure_feedback_role_arn":    null,
+						"application_success_feedback_role_arn":    null,
+						"application_success_feedback_sample_rate": null,
+						"content_based_deduplication":              false,
+						"delivery_policy":                          null,
+						"display_name":                             null,
+						"fifo_topic":                               false,
+						"firehose_failure_feedback_role_arn":       null,
+						"firehose_success_feedback_role_arn":       null,
+						"firehose_success_feedback_sample_rate":    null,
+						"http_failure_feedback_role_arn":           null,
+						"http_success_feedback_role_arn":           null,
+						"http_success_feedback_sample_rate":        null,
+						"kms_master_key_id":                        null,
+						"lambda_failure_feedback_role_arn":         null,
+						"lambda_success_feedback_role_arn":         null,
+						"lambda_success_feedback_sample_rate":      null,
+						"name": "sns_not_ecnrypted-1",
+						"sqs_failure_feedback_role_arn":    null,
+						"sqs_success_feedback_role_arn":    null,
+						"sqs_success_feedback_sample_rate": null,
+						"tags": {
+							"Name": "Sns Topic Cloudrail Test",
+						},
+						"tags_all": {
+							"Name": "Sns Topic Cloudrail Test",
+						},
+					},
+				},
+				{
+					"address":        "aws_sqs_queue.cloudrail",
+					"mode":           "managed",
+					"name":           "cloudrail",
+					"provider_name":  "registry.terraform.io/hashicorp/aws",
+					"schema_version": 0,
+					"sensitive_values": {
+						"tags":     {},
+						"tags_all": {},
+					},
+					"type": "aws_sqs_queue",
+					"values": {
+						"content_based_deduplication": false,
+						"delay_seconds":               0,
+						"fifo_queue":                  false,
+						"kms_master_key_id":           null,
+						"max_message_size":            262144,
+						"message_retention_seconds":   345600,
+						"name": "sqs_non_encrypted",
+						"receive_wait_time_seconds": 0,
+						"redrive_policy":            null,
+						"tags": {
+							"Name": "Sqs Cloudrail Test",
+						},
+						"tags_all": {
+							"Name": "Sqs Cloudrail Test",
+						},
+						"visibility_timeout_seconds": 30,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "aws_sns_topic.cloudrail_1",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"application_failure_feedback_role_arn":    null,
+					"application_success_feedback_role_arn":    null,
+					"application_success_feedback_sample_rate": null,
+					"content_based_deduplication":              false,
+					"delivery_policy":                          null,
+					"display_name":                             null,
+					"fifo_topic":                               false,
+					"firehose_failure_feedback_role_arn":       null,
+					"firehose_success_feedback_role_arn":       null,
+					"firehose_success_feedback_sample_rate":    null,
+					"http_failure_feedback_role_arn":           null,
+					"http_success_feedback_role_arn":           null,
+					"http_success_feedback_sample_rate":        null,
+					"kms_master_key_id":                        null,
+					"lambda_failure_feedback_role_arn":         null,
+					"lambda_success_feedback_role_arn":         null,
+					"lambda_success_feedback_sample_rate":      null,
+					"name": "sns_not_ecnrypted-1",
+					"sqs_failure_feedback_role_arn":    null,
+					"sqs_success_feedback_role_arn":    null,
+					"sqs_success_feedback_sample_rate": null,
+					"tags": {
+						"Name": "Sns Topic Cloudrail Test",
+					},
+					"tags_all": {
+						"Name": "Sns Topic Cloudrail Test",
+					},
+				},
+				"after_sensitive": {
+					"tags":     {},
+					"tags_all": {},
+				},
+				"after_unknown": {
+					"arn":         true,
+					"id":          true,
+					"name_prefix": true,
+					"owner":       true,
+					"policy":      true,
+					"tags":        {},
+					"tags_all":    {},
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "cloudrail_1",
+			"provider_name": "registry.terraform.io/hashicorp/aws",
+			"type":          "aws_sns_topic",
+		},
+		{
+			"address": "aws_sqs_queue.cloudrail",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"content_based_deduplication": false,
+					"delay_seconds":               0,
+					"fifo_queue":                  false,
+					"kms_master_key_id":           null,
+					"max_message_size":            262144,
+					"message_retention_seconds":   345600,
+					"name": "sqs_non_encrypted",
+					"receive_wait_time_seconds": 0,
+					"redrive_policy":            null,
+					"tags": {
+						"Name": "Sqs Cloudrail Test",
+					},
+					"tags_all": {
+						"Name": "Sqs Cloudrail Test",
+					},
+					"visibility_timeout_seconds": 30,
+				},
+				"after_sensitive": {
+					"tags":     {},
+					"tags_all": {},
+				},
+				"after_unknown": {
+					"arn": true,
+					"deduplication_scope":   true,
+					"fifo_throughput_limit": true,
+					"id": true,
+					"kms_data_key_reuse_period_seconds": true,
+					"name_prefix":                       true,
+					"policy":                            true,
+					"tags":                              {},
+					"tags_all":                          {},
+					"url":                               true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "cloudrail",
+			"provider_name": "registry.terraform.io/hashicorp/aws",
+			"type":          "aws_sqs_queue",
+		},
+	],
+	"terraform_version": "1.0.5",
+}

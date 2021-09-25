@@ -1,0 +1,35 @@
+import "tfrun"
+import "http"
+import "json"
+
+param CLOUDRAIL_API_KEY
+
+getAssesmentResult = func() {
+	query_str = "query=" + tfrun.id
+	url = "https://api.cloudrail.app/v1/assessments?" + query_str	
+	req = http.request(url).with_header("X-Api-Key", CLOUDRAIL_API_KEY)
+	resp = http.get(req)
+	body = json.unmarshal(resp.body)
+	result = filter body.page_results as v { v.execution_source_identifier is tfrun.id }
+	return result[0]
+}
+
+isPass = func(enforcement_level, assessment_result_type) {
+	if assessment_result_type == "passed" {
+		return true
+	}
+	if assessment_result_type == "passed_with_warnings" and enforcement_level == "advisory" {
+		return true
+	}
+	return false
+}
+
+cloudrail = func(enforcement_level) {
+	result = getAssesmentResult()
+	assessment_result_type = result.results_summary.assessment_result_type
+	msg = "To view assessment results, go to https://web.cloudrail.app/environments/assessments/" + result.id
+	print(msg)
+	return isPass(enforcement_level, assessment_result_type)
+}
+
+main = rule { cloudrail("soft-mandatory") }

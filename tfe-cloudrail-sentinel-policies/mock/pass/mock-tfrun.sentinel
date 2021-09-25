@@ -1,0 +1,49 @@
+id = "run-nBgbA5eWpxZ2eRFZ"
+created_at = "2021-09-21T11:58:46.040Z"
+message = "(indeni/tfe-cloudrail-worker:latest)"
+commit_sha = "41fddeabb3ae0b1d2033e49fbe92315cd20ab37d"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"AWS_ACCESS_KEY_ID": {
+		"category":  "env",
+		"sensitive": true,
+	},
+	"AWS_SECRET_ACCESS_KEY": {
+		"category":  "env",
+		"sensitive": true,
+	},
+	"CLOUDRAIL_API_KEY": {
+		"category":  "env",
+		"sensitive": true,
+	},
+	"CLOUD_ACCOUNT_ID": {
+		"category":  "env",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "Admin",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2021-09-16T18:03:05.480Z",
+	"description": "",
+	"id":          "ws-39DCXXUCLgcR437o",
+	"name":        "tool-compare-aws-add-tags",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "itwl-demo-org/tool-compare",
+		"identifier":         "itwl-demo-org/tool-compare",
+		"ingress_submodules": false,
+	},
+	"working_directory": "/test-cases/terraform/aws/best-practices/tag_all_items",
+}

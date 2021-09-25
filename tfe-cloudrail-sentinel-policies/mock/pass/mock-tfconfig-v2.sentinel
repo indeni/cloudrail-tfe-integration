@@ -1,0 +1,80 @@
+import "strings"
+
+providers = {
+	"aws": {
+		"alias": "",
+		"config": {
+			"region": {
+				"constant_value": "us-east-1",
+			},
+		},
+		"module_address":      "",
+		"name":                "aws",
+		"provider_config_key": "aws",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"aws_sns_topic.cloudrail_1": {
+		"address": "aws_sns_topic.cloudrail_1",
+		"config": {
+			"name": {
+				"constant_value": "sns_not_ecnrypted-1",
+			},
+			"tags": {
+				"constant_value": {
+					"Name": "Sns Topic Cloudrail Test",
+				},
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "cloudrail_1",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_sns_topic",
+	},
+	"aws_sqs_queue.cloudrail": {
+		"address": "aws_sqs_queue.cloudrail",
+		"config": {
+			"name": {
+				"constant_value": "sqs_non_encrypted",
+			},
+			"tags": {
+				"constant_value": {
+					"Name": "Sqs Cloudrail Test",
+				},
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "cloudrail",
+		"provider_config_key": "aws",
+		"provisioners":        [],
+		"type":                "aws_sqs_queue",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}
