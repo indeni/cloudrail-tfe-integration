@@ -1,0 +1,65 @@
+import "tfrun"
+import "http"
+import "json"
+
+
+assessment_result_type_map = {
+	"passed": 0,
+	"passed_with_warnings": 1,
+	"failed_due_to_violations": 2,
+}
+
+# Check Cloudrail API for assesment result
+# https://app.swaggerhub.com/apis-docs/cloudrail/cloudrail-api/1.0.0#/assessments 
+getAssesmentResult = func(cloudrail_api_key) {
+	query_str = "query=" + tfrun.id
+	url = "https://api.cloudrail.app/v1/assessments?" + query_str	
+	req = http.request(url).with_header("X-Api-Key", cloudrail_api_key)
+	resp = http.get(req)
+	body = json.unmarshal(resp.body)
+	result = filter body.page_results as v { v.execution_source_identifier is tfrun.id }
+	return result[0]
+}
+
+# assessment_result_type: Cloudrail assessment result
+# looking_for_result_type: what the rule is looking for
+# Cloudrail assessment >= looking_for
+#  passed 0 >= passed 0: true (failed, was expecting less than 0)
+#  passed 0 >= passed_with_warnings 1: false (pass) 
+#  passed 0 >= failed_due_to_violations 2: false (pass)
+#  passed_with_warnings 1 >= passed 0: true (failed)
+#  passed_with_warnings 1 >= passed_with_warnings 1: true (failed) 
+#  passed_with_warnings 1 >= failed_due_to_violations 2: false (pass)
+#  failed_due_to_violations 2 >= passed 0: true (failed)
+#  failed_due_to_violations 2 >= passed_with_warnings 1: true (failed) 
+#  failed_due_to_violations 2 >= failed_due_to_violations 2: true (failed) 
+testTypes = func(assessment_result_type, looking_for_result_type) {
+	if (assessment_result_type_map[assessment_result_type] >= assessment_result_type_map[looking_for_result_type]){
+		return true
+	}
+	return false 
+}
+
+# assess(cloudrail_api_key, looking_for)
+#  cloudrail_api_key: the Cloudrail API KEY used to query assesments
+#  looking_for_result_type: the type of result that will trigger a rule failure (rule violated)
+assess = func(cloudrail_api_key, looking_for_result_type) {
+	result = getAssesmentResult(cloudrail_api_key)
+	assessment_result_type = result.results_summary.assessment_result_type
+	evaluated_rules =  result.results_summary.evaluated_rules
+	passed_rules 	= result.results_summary.passed_rules
+	failed_rules 	= result.results_summary.failed_rules
+	skipped_rules 	= result.results_summary.skipped_rules
+	ignored_rules 	=  result.results_summary.ignored_rules
+
+	msg = "To view assessment results, go to https://web.cloudrail.app/environments/assessments/" + result.id
+	print(msg)
+
+	result = testTypes(assessment_result_type, looking_for_result_type)
+	
+	if (result) {
+		return ("Failed "+ string(failed_rules) + " mandated/advised rules")
+	}
+	// Policy pass, the Assessment is not equal to "looking_for_result_type"
+	return true
+}

@@ -1,0 +1,8 @@
+import "cloudrail"
+
+param CLOUDRAIL_API_KEY
+
+# Cloudrail asessment resulted in "passed_with_warnings"? (some mandated/advised rules are violated)
+# TRUE/PASS: No warnings
+# FALSE/FAIL: Some rules have been violated, see Cloudrail for details
+main = rule { cloudrail.assess(CLOUDRAIL_API_KEY, "passed_with_warnings") }

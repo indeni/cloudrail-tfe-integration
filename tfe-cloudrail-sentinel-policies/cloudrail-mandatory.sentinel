@@ -1,0 +1,8 @@
+import "cloudrail"
+
+param CLOUDRAIL_API_KEY
+
+# Cloudrail asessment resulted in "failed_due_to_violations"? (some company mandatory rules are violated)
+# TRUE/PASS: No company mandatory rules have been violated
+# FALSE/FAIL: Some company mandatory rules have been violated, see Cloudrail for details
+main = rule { cloudrail.assess(CLOUDRAIL_API_KEY, "failed_due_to_violations") }
