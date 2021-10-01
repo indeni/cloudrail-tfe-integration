@@ -3,7 +3,7 @@
 ## Prerequisites
 * Working installation of [Terraform Enterprise](https://www.terraform.io/docs/enterprise/index.html). See example configuration code in [/terraform/tfe-deployment](terraform/tfe-deployment).
 * Public or private version control system (VCS)
-* Cloud account in AWS, Azure or Google Cloud
+* Cloud account in AWS or Azure
 * [Cloudrail account](https://web.cloudrail.app/), with the API key, and your cloud account added
 * [Docker Repository](https://hub.docker.com/)
 
