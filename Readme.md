@@ -7,7 +7,7 @@
 * [Cloudrail account](https://web.cloudrail.app/), with the API key, and your cloud account added
 * [Docker Repository](https://hub.docker.com/)
 
-Follow the guide below to integrate Cloudrail into your Terraform Enterprise workspaces or see a detailed tutorial in the [Cloudrail Blog](https://indeni.com/blog/). This will require using a custom docker image, which will contain the Cloudrail CLI code as well as a finalizer script. 
+Follow the guide below to integrate Cloudrail into your Terraform Enterprise workspaces or see a detailed tutorial in the [Cloudrail Docs](https://cloudrail.app/docs/tfe/). This will require using a custom docker image, which will contain the Cloudrail CLI code as well as a finalizer script. 
 
 ## Create Cloudrail base worker image
 1. Create base Ubuntu Docker image with Cloudrail installed on it. See example in [/docker/tfe-cloudrail-worker](docker/tfe-cloudrail-worker).
